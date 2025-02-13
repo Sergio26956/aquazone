@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaZone - Parque Acuático Hinchable</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Fondo animado -->
+  <div class="background" aria-hidden="true"></div>
+
+  <!-- Encabezado -->
+  <header>
+    <div class="header-container">
+      <h1 class="logo">AquaZone</h1>
+      <button class="menu-btn" aria-expanded="false" aria-label="Abrir menú">Menú</button>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#atracciones">Atracciones</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+    <!-- Sección Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <h2>Bienvenido a AquaZone</h2>
+        <p>¡La experiencia acuática más emocionante y futurista!</p>
+        <a href="#atracciones" class="cta">Explorar Ahora</a>
+      </div>
+    </section>
+
+    <!-- Sección Atracciones (con efecto 3D en las tarjetas) -->
+    <section class="atracciones" id="atracciones">
+      <h2>Nuestras Atracciones</h2>
+      <div class="cards-container">
+        <div class="card">
+          <h3>Atracción 1</h3>
+          <p>Disfruta de la máxima adrenalina con efectos 3D.</p>
+        </div>
+        <div class="card">
+          <h3>Atracción 2</h3>
+          <p>Sumérgete en la diversión interactiva.</p>
+        </div>
+        <div class="card">
+          <h3>Atracción 3</h3>
+          <p>Vive la experiencia en 3D con transiciones envolventes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section class="contacto" id="contacto">
+      <h2>Contacto</h2>
+      <!-- El contacto real se muestra al pulsar el botón -->
+      <button id="show-contact">Mostrar Datos de Contacto</button>
+      <div id="contact-details" class="hidden">
+        <p>Email: info@aquazone.com</p>
+        <p>Tel: +34 123 456 789</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Banner de Cookies -->
+  <div id="cookie-banner" class="cookie-banner">
+    <p>Usamos cookies para mejorar tu experiencia. Al continuar, aceptas su uso.</p>
+    <button id="accept-cookies">Aceptar</button>
+  </div>
+
+  <!-- Música de Fondo -->
+  <audio id="bg-music" src="music.mp3" loop preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
