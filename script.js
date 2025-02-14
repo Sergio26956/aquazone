@@ -1,42 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const menuBtn = document.querySelector('.menu-btn');
-  const nav = document.getElementById('main-nav');
-  const showContactBtn = document.getElementById('show-contact');
-  const contactDetails = document.getElementById('contact-details');
-  const cookieBanner = document.getElementById('cookie-banner');
-  const acceptCookiesBtn = document.getElementById('accept-cookies');
-  const bgMusic = document.getElementById('bg-music');
+  console.log("Página de AquaZone cargada exitosamente.");
 
-  // Toggle del menú
-  menuBtn.addEventListener('click', () => {
-    const isActive = nav.classList.toggle('active');
-    menuBtn.setAttribute('aria-expanded', isActive);
+  // Funcionalidad para el modal del área administrativa
+  const adminBtn = document.getElementById('adminBtn');
+  const adminModal = document.getElementById('adminModal');
+  const closeModal = document.querySelector('.modal .close');
+
+  adminBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    adminModal.style.display = 'block';
   });
 
-  // Mostrar detalles de contacto
-  if (showContactBtn) {
-    showContactBtn.addEventListener('click', () => {
-      contactDetails.classList.toggle('show');
-    });
-  }
+  closeModal.addEventListener('click', () => {
+    adminModal.style.display = 'none';
+  });
 
-  // Gestión del banner de cookies
-  if (cookieBanner && acceptCookiesBtn) {
-    acceptCookiesBtn.addEventListener('click', () => {
-      cookieBanner.style.display = 'none';
-      localStorage.setItem('cookiesAccepted', 'true');
-    });
-  }
-  // Verificar si se han aceptado las cookies
-  if (localStorage.getItem('cookiesAccepted') === 'true') {
-    cookieBanner.style.display = 'none';
-  } else {
-    cookieBanner.style.display = 'block';
-  }
+  // Cerrar el modal al hacer clic fuera del contenido
+  window.addEventListener('click', (e) => {
+    if (e.target === adminModal) {
+      adminModal.style.display = 'none';
+    }
+  });
 
-  // Reproducir música de fondo (con manejo de posibles bloqueos por autoplay)
-  bgMusic.play().catch(error => {
-    console.warn('Autoplay de la música bloqueado:', error);
-    // Opcional: Mostrar un botón para iniciar la música manualmente.
+  // Envío del formulario de contacto (simulación)
+  const contactForm = document.getElementById('contactForm');
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
+    contactForm.reset();
+  });
+
+  // Envío del formulario del área administrativa (placeholder)
+  const adminForm = document.getElementById('adminForm');
+  adminForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Acceso administrativo no implementado en esta demo.');
+    adminForm.reset();
+    adminModal.style.display = 'none';
   });
 });
