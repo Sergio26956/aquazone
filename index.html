@@ -3,23 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AquaZone - Parque Acuático Hinchable</title>
+  <title>AquaZone Water Park</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Fondo animado -->
-  <div class="background" aria-hidden="true"></div>
+  <!-- Fondo de imagen -->
+  <div class="background"></div>
 
-  <!-- Encabezado -->
+  <!-- Encabezado con logo y menú de navegación -->
   <header>
     <div class="header-container">
-      <h1 class="logo">AquaZone</h1>
-      <button class="menu-btn" aria-expanded="false" aria-label="Abrir menú">Menú</button>
-      <nav id="main-nav">
+      <img src="logo.png" alt="AquaZone Logo" class="logo">
+      <nav>
         <ul>
-          <li><a href="#hero">Inicio</a></li>
-          <li><a href="#atracciones">Atracciones</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#about">Quiénes Somos</a></li>
+          <li><a href="#media">Media</a></li>
+          <li><a href="#contact">Contacto</a></li>
+          <li><a href="#flotantes">Parques Flotantes</a></li>
+          <li><a href="#terrestres">Parques Terrestres</a></li>
+          <li><a href="#" id="adminBtn">Admin</a></li>
         </ul>
       </nav>
     </div>
@@ -27,54 +31,155 @@
 
   <!-- Contenido principal -->
   <main>
-    <!-- Sección Hero -->
-    <section class="hero" id="hero">
-      <div class="hero-content">
-        <h2>Bienvenido a AquaZone</h2>
-        <p>¡La experiencia acuática más emocionante y futurista!</p>
-        <a href="#atracciones" class="cta">Explorar Ahora</a>
+    <!-- Sección: Quiénes Somos -->
+    <section id="about" class="section">
+      <div class="content-container">
+        <h2>Quiénes Somos</h2>
+        <p>
+          En AquaZone Water Park somos pioneros en experiencias acuáticas únicas. Nuestra misión es combinar innovación, diversión y seguridad para ofrecer momentos inolvidables. Con una trayectoria de excelencia, nos comprometemos a reinventar el entretenimiento acuático.
+        </p>
       </div>
     </section>
 
-    <!-- Sección Atracciones (con efecto 3D en las tarjetas) -->
-    <section class="atracciones" id="atracciones">
-      <h2>Nuestras Atracciones</h2>
-      <div class="cards-container">
-        <div class="card">
-          <h3>Atracción 1</h3>
-          <p>Disfruta de la máxima adrenalina con efectos 3D.</p>
-        </div>
-        <div class="card">
-          <h3>Atracción 2</h3>
-          <p>Sumérgete en la diversión interactiva.</p>
-        </div>
-        <div class="card">
-          <h3>Atracción 3</h3>
-          <p>Vive la experiencia en 3D con transiciones envolventes.</p>
+    <!-- Sección: Media (Imágenes y Videos) -->
+    <section id="media" class="section">
+      <div class="content-container">
+        <h2>Media</h2>
+        <div class="media-gallery">
+          <!-- Ejemplos de imágenes y videos -->
+          <div class="media-item">
+            <img src="media1.jpg" alt="Imagen 1">
+          </div>
+          <div class="media-item">
+            <img src="media2.jpg" alt="Imagen 2">
+          </div>
+          <div class="media-item">
+            <video controls>
+              <source src="video1.mp4" type="video/mp4">
+              Tu navegador no soporta video.
+            </video>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Sección de Contacto -->
-    <section class="contacto" id="contacto">
-      <h2>Contacto</h2>
-      <!-- El contacto real se muestra al pulsar el botón -->
-      <button id="show-contact">Mostrar Datos de Contacto</button>
-      <div id="contact-details" class="hidden">
-        <p>Email: info@aquazone.com</p>
-        <p>Tel: +34 123 456 789</p>
+    <!-- Sección: Contacto -->
+    <section id="contact" class="section">
+      <div class="content-container">
+        <h2>Contacto</h2>
+        <form id="contactForm">
+          <label for="name">Nombre:</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Mensaje:</label>
+          <textarea id="message" name="message" required></textarea>
+
+          <button type="submit">Enviar Mensaje</button>
+        </form>
+        <!-- Botón para llamar (redirecciona a la app telefónica) -->
+        <a href="tel:+1234567890" class="call-button">Llamar Ahora</a>
+      </div>
+    </section>
+
+    <!-- Sección: Parques Acuáticos Flotantes -->
+    <section id="flotantes" class="section">
+      <div class="content-container">
+        <h2>Parques Acuáticos Flotantes</h2>
+        <div class="subsections">
+          <!-- Sub-sección: Piscinas -->
+          <div class="subsection" id="flotantes-piscinas">
+            <h3>Piscinas</h3>
+            <p>
+              Descubre nuestras impresionantes piscinas flotantes, diseñadas para ofrecerte una experiencia refrescante y única.
+            </p>
+            <img src="piscinas.jpg" alt="Piscinas Flotantes">
+            <a href="https://www.youtube.com/watch?v=example1" target="_blank">Ver Video</a>
+          </div>
+          <!-- Sub-sección: Playas -->
+          <div class="subsection" id="flotantes-playas">
+            <h3>Playas</h3>
+            <p>
+              Relájate en nuestras playas flotantes, donde la innovación se fusiona con la naturaleza para brindarte momentos de paz y diversión.
+            </p>
+            <img src="playas.jpg" alt="Playas Flotantes">
+            <a href="https://www.youtube.com/watch?v=example2" target="_blank">Ver Video</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Parques Acuáticos Terrestres -->
+    <section id="terrestres" class="section">
+      <div class="content-container">
+        <h2>Parques Acuáticos Terrestres</h2>
+        <div class="subsections">
+          <!-- Sub-sección: Kamikaze Jump Gigante -->
+          <div class="subsection" id="terrestres-kamikaze">
+            <h3>Kamikaze Jump Gigante</h3>
+            <p>
+              Una experiencia extrema con saltos gigantes que desafían la gravedad. ¡Atrévete a sentir la adrenalina!
+            </p>
+            <img src="kamikaze.jpg" alt="Kamikaze Jump Gigante">
+            <a href="https://www.youtube.com/watch?v=example3" target="_blank">Ver Video</a>
+          </div>
+          <!-- Sub-sección: Parque Acuático Urbano Móvil -->
+          <div class="subsection" id="terrestres-urbano">
+            <h3>Parque Acuático Urbano Móvil</h3>
+            <p>
+              Innovación en movimiento: un parque acuático que se adapta al entorno urbano y te lleva la diversión a donde vayas.
+            </p>
+            <img src="urbano.jpg" alt="Parque Acuático Urbano Móvil">
+            <a href="https://www.youtube.com/watch?v=example4" target="_blank">Ver Video</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Redes Sociales -->
+    <section id="social" class="section">
+      <div class="content-container">
+        <h2>Redes Sociales</h2>
+        <div class="social-icons">
+          <a href="https://www.facebook.com" target="_blank">
+            <img src="facebook.png" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com" target="_blank">
+            <img src="instagram.png" alt="Instagram">
+          </a>
+          <a href="https://www.twitter.com" target="_blank">
+            <img src="twitter.png" alt="Twitter">
+          </a>
+          <a href="https://www.youtube.com" target="_blank">
+            <img src="youtube.png" alt="YouTube">
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- Banner de Cookies -->
-  <div id="cookie-banner" class="cookie-banner">
-    <p>Usamos cookies para mejorar tu experiencia. Al continuar, aceptas su uso.</p>
-    <button id="accept-cookies">Aceptar</button>
-  </div>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 AquaZone Water Park. Todos los derechos reservados.</p>
+  </footer>
 
-  <!-- Música de Fondo -->
-  <audio id="bg-music" src="music.mp3" loop preload="auto"></audio>
+  <!-- Modal Área Administrativa -->
+  <div id="adminModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Área Administrativa</h2>
+      <p>Acceso restringido. Introduzca sus credenciales.</p>
+      <form id="adminForm">
+        <label for="adminUser">Usuario:</label>
+        <input type="text" id="adminUser" name="adminUser" required>
+        <label for="adminPass">Contraseña:</label>
+        <input type="password" id="adminPass" name="adminPass" required>
+        <button type="submit">Acceder</button>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
