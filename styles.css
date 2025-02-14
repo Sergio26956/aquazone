@@ -1,51 +1,46 @@
-/* Variables CSS para facilitar cambios futuros */
+/* Variables de colores y fuente */
 :root {
-  --primary-color: #0077b6;
-  --secondary-color: #00b4d8;
+  --primary-color: #00b4d8;
+  --secondary-color: #0077b6;
   --accent-color: #90e0ef;
-  --font-color: #ffffff;
   --bg-color: #03045e;
-  --transition-speed: 0.3s;
+  --text-color: #ffffff;
+  --modal-bg: rgba(0, 0, 0, 0.8);
 }
 
-/* Reset básico */
+/* Reset y estilos globales */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Cuerpo */
 body {
   font-family: 'Roboto', sans-serif;
   background-color: var(--bg-color);
-  color: var(--font-color);
+  color: var(--text-color);
+  position: relative;
   overflow-x: hidden;
 }
 
-/* Fondo animado con efecto de brillo variable */
+/* Fondo de imagen */
 .background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('inflatable1.jpg') center center/cover no-repeat;
-  z-index: -2;
-  animation: backgroundAnimation 30s linear infinite;
-}
-
-@keyframes backgroundAnimation {
-  0% { filter: brightness(1); }
-  50% { filter: brightness(1.2); }
-  100% { filter: brightness(1); }
+  background: url('fondo.jpg') center/cover no-repeat;
+  filter: brightness(0.7);
+  z-index: -1;
 }
 
 /* Encabezado */
 header {
-  background: rgba(0, 0, 0, 0.7);
-  position: fixed;
   width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1rem 2rem;
+  position: fixed;
   top: 0;
   z-index: 1000;
 }
@@ -54,190 +49,209 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
 }
 
 .logo {
-  font-size: 2.5rem;
-  font-weight: bold;
-  animation: float 3s ease-in-out infinite;
+  width: 150px;
+  animation: logoEffect 3s infinite alternate;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.menu-btn {
-  background: var(--primary-color);
-  color: var(--font-color);
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  transition: background var(--transition-speed);
-}
-
-.menu-btn:hover {
-  background: var(--secondary-color);
-}
-
-/* Navegación */
-nav {
-  display: none;
-}
-
-nav.active {
-  display: block;
+@keyframes logoEffect {
+  0% { filter: brightness(1) drop-shadow(0 0 5px var(--accent-color)); }
+  100% { filter: brightness(1.2) drop-shadow(0 0 15px var(--accent-color)); }
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 nav a {
+  color: var(--text-color);
   text-decoration: none;
-  color: var(--font-color);
-  transition: color var(--transition-speed);
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
   color: var(--accent-color);
 }
 
-/* Sección Hero */
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.4);
+/* Secciones */
+.section {
+  padding: 100px 20px; /* Espacio para compensar el header fijo */
+  min-height: 100vh;
 }
 
-.hero-content h2 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.hero-content p {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.cta {
-  background: var(--primary-color);
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  color: var(--font-color);
-  transition: background var(--transition-speed);
-}
-
-.cta:hover {
-  background: var(--secondary-color);
-}
-
-/* Sección Atracciones */
-.atracciones {
-  padding: 4rem 2rem;
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.atracciones h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-}
-
-.cards-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 2rem;
-  width: 300px;
-  transition: transform var(--transition-speed), background var(--transition-speed);
-  cursor: pointer;
-  perspective: 1000px;
-}
-
-.card:hover {
-  transform: rotateY(10deg) scale(1.05);
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Sección Contacto */
-.contacto {
-  padding: 4rem 2rem;
-  background: rgba(0, 0, 0, 0.7);
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.contacto h2 {
+h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-#contact-details {
-  margin-top: 1rem;
-  display: none;
-}
-
-#contact-details.show {
-  display: block;
-}
-
-/* Banner de Cookies */
-.cookie-banner {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.9);
-  color: var(--font-color);
-  padding: 1rem 2rem;
-  text-align: center;
-  z-index: 10000;
-}
-
-.cookie-banner p {
+h3 {
+  font-size: 2rem;
   margin-bottom: 0.5rem;
 }
 
-.cookie-banner button {
-  background: var(--primary-color);
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  color: var(--font-color);
-  transition: background var(--transition-speed);
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
-.cookie-banner button:hover {
+/* Galería de Media */
+.media-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.media-item {
+  flex: 1 1 300px;
+  max-width: 300px;
+}
+
+.media-item img,
+.media-item video {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Formularios y botones */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+input, textarea {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  background: var(--primary-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
   background: var(--secondary-color);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  nav ul {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .cards-container {
-    flex-direction: column;
-    align-items: center;
-  }
+/* Botón de llamada */
+.call-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--accent-color);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.call-button:hover {
+  background: var(--primary-color);
+}
+
+/* Sub-secciones (parques) */
+.subsections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.subsection {
+  flex: 1 1 45%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.subsection:hover {
+  transform: scale(1.03);
+}
+
+.subsection img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+/* Redes Sociales */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icons a img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  position: relative;
+  z-index: 1000;
+}
+
+/* Modal Área Administrativa */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: var(--modal-bg);
+}
+
+.modal-content {
+  background-color: #111;
+  margin: 10% auto;
+  padding: 2rem;
+  border: 1px solid var(--accent-color);
+  width: 80%;
+  max-width: 400px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.close {
+  color: var(--text-color);
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
