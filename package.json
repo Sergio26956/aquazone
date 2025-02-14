@@ -1,0 +1,20 @@
+{
+  "name": "aquazone-backend",
+  "version": "1.0.0",
+  "description": "Backend para AQUAZONE - Parque Acuático con chat en tiempo real",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
+  },
+  "keywords": [],
+  "author": "TuNombre",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.0",
+    "openai": "^3.2.1"
+  }
+}
