@@ -1,186 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AquaZone Water Park</title>
-  <link rel="stylesheet" href="styles.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="description" content="AQUAZONE - Parque Acuático de Castillos Hinchables" />
+  <meta name="keywords" content="Parque Acuático, Castillos Hinchables, Piscinas, Playas, Aquazone" />
+  <meta name="author" content="TuNombre" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AQUAZONE - Parque Acuático</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Fondo de imagen -->
-  <div class="background"></div>
+  <!-- Canvas para animación 3D (Three.js) -->
+  <canvas id="bg-canvas"></canvas>
 
-  <!-- Encabezado con logo y menú de navegación -->
+  <!-- Encabezado: Logo y título -->
   <header>
-    <div class="header-container">
-      <img src="logo.png" alt="AquaZone Logo" class="logo">
-      <nav>
-        <ul>
-          <li><a href="#about">Quiénes Somos</a></li>
-          <li><a href="#media">Media</a></li>
-          <li><a href="#contact">Contacto</a></li>
-          <li><a href="#flotantes">Parques Flotantes</a></li>
-          <li><a href="#terrestres">Parques Terrestres</a></li>
-          <li><a href="#" id="adminBtn">Admin</a></li>
-        </ul>
-      </nav>
-    </div>
+    <img src="assets/logo.png" alt="Logo AQUAZONE" class="logo" />
+    <h1 class="neon-title">AQUAZONE</h1>
+    <p class="subtitle">¡Diversión acuática y castillos hinchables para toda la familia!</p>
+    <button id="start-btn" class="btn-neon">Descubre Más</button>
   </header>
 
-  <!-- Contenido principal -->
-  <main>
-    <!-- Sección: Quiénes Somos -->
-    <section id="about" class="section">
-      <div class="content-container">
-        <h2>Quiénes Somos</h2>
-        <p>
-          En AquaZone Water Park somos pioneros en experiencias acuáticas únicas. Nuestra misión es combinar innovación, diversión y seguridad para ofrecer momentos inolvidables. Con una trayectoria de excelencia, nos comprometemos a reinventar el entretenimiento acuático.
-        </p>
-      </div>
-    </section>
+  <!-- Sección principal de Atracciones -->
+  <section class="main-attractions">
+    <div class="attraction-btns">
+      <button id="flotantesBtn" class="btn-neon">Parques Acuáticos Flotantes</button>
+      <button id="terrestresBtn" class="btn-neon">Parques Acuáticos Terrestres</button>
+    </div>
+  </section>
 
-    <!-- Sección: Media (Imágenes y Videos) -->
-    <section id="media" class="section">
-      <div class="content-container">
-        <h2>Media</h2>
-        <div class="media-gallery">
-          <!-- Ejemplos de imágenes y videos -->
-          <div class="media-item">
-            <img src="media1.jpg" alt="Imagen 1">
-          </div>
-          <div class="media-item">
-            <img src="media2.jpg" alt="Imagen 2">
-          </div>
-          <div class="media-item">
-            <video controls>
-              <source src="video1.mp4" type="video/mp4">
-              Tu navegador no soporta video.
-            </video>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- Secciones desplegables para subsecciones -->
+  <section id="flotantes-sections" class="sub-sections hidden">
+    <button id="piscinasBtn" class="sub-btn">Piscinas</button>
+    <button id="playasBtn" class="sub-btn">Playas</button>
+  </section>
 
-    <!-- Sección: Contacto -->
-    <section id="contact" class="section">
-      <div class="content-container">
-        <h2>Contacto</h2>
-        <form id="contactForm">
-          <label for="name">Nombre:</label>
-          <input type="text" id="name" name="name" required>
+  <section id="terrestres-sections" class="sub-sections hidden">
+    <button id="kamikazeBtn" class="sub-btn">Kamikaze Jump Gigante</button>
+    <button id="urbanoBtn" class="sub-btn">Parque Acuático Urbano Móvil</button>
+  </section>
 
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
+  <!-- Contenedor para mostrar contenido dinámico de cada subsección -->
+  <section id="content-display" class="content-display hidden">
+    <div id="content-title"></div>
+    <div id="content-description"></div>
+    <div id="content-media"></div>
+  </section>
 
-          <label for="message">Mensaje:</label>
-          <textarea id="message" name="message" required></textarea>
+  <!-- Chat en tiempo real -->
+  <section class="chat-section">
+    <h2>Chat en Tiempo Real</h2>
+    <div class="chat-container">
+      <div class="messages" id="messages"></div>
+      <input type="text" id="userInput" placeholder="Escribe un mensaje..." />
+      <button id="sendBtn">Enviar</button>
+    </div>
+  </section>
 
-          <button type="submit">Enviar Mensaje</button>
-        </form>
-        <!-- Botón para llamar (redirecciona a la app telefónica) -->
-        <a href="tel:+1234567890" class="call-button">Llamar Ahora</a>
-      </div>
-    </section>
-
-    <!-- Sección: Parques Acuáticos Flotantes -->
-    <section id="flotantes" class="section">
-      <div class="content-container">
-        <h2>Parques Acuáticos Flotantes</h2>
-        <div class="subsections">
-          <!-- Sub-sección: Piscinas -->
-          <div class="subsection" id="flotantes-piscinas">
-            <h3>Piscinas</h3>
-            <p>
-              Descubre nuestras impresionantes piscinas flotantes, diseñadas para ofrecerte una experiencia refrescante y única.
-            </p>
-            <img src="piscinas.jpg" alt="Piscinas Flotantes">
-            <a href="https://www.youtube.com/watch?v=example1" target="_blank">Ver Video</a>
-          </div>
-          <!-- Sub-sección: Playas -->
-          <div class="subsection" id="flotantes-playas">
-            <h3>Playas</h3>
-            <p>
-              Relájate en nuestras playas flotantes, donde la innovación se fusiona con la naturaleza para brindarte momentos de paz y diversión.
-            </p>
-            <img src="playas.jpg" alt="Playas Flotantes">
-            <a href="https://www.youtube.com/watch?v=example2" target="_blank">Ver Video</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sección: Parques Acuáticos Terrestres -->
-    <section id="terrestres" class="section">
-      <div class="content-container">
-        <h2>Parques Acuáticos Terrestres</h2>
-        <div class="subsections">
-          <!-- Sub-sección: Kamikaze Jump Gigante -->
-          <div class="subsection" id="terrestres-kamikaze">
-            <h3>Kamikaze Jump Gigante</h3>
-            <p>
-              Una experiencia extrema con saltos gigantes que desafían la gravedad. ¡Atrévete a sentir la adrenalina!
-            </p>
-            <img src="kamikaze.jpg" alt="Kamikaze Jump Gigante">
-            <a href="https://www.youtube.com/watch?v=example3" target="_blank">Ver Video</a>
-          </div>
-          <!-- Sub-sección: Parque Acuático Urbano Móvil -->
-          <div class="subsection" id="terrestres-urbano">
-            <h3>Parque Acuático Urbano Móvil</h3>
-            <p>
-              Innovación en movimiento: un parque acuático que se adapta al entorno urbano y te lleva la diversión a donde vayas.
-            </p>
-            <img src="urbano.jpg" alt="Parque Acuático Urbano Móvil">
-            <a href="https://www.youtube.com/watch?v=example4" target="_blank">Ver Video</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sección: Redes Sociales -->
-    <section id="social" class="section">
-      <div class="content-container">
-        <h2>Redes Sociales</h2>
-        <div class="social-icons">
-          <a href="https://www.facebook.com" target="_blank">
-            <img src="facebook.png" alt="Facebook">
-          </a>
-          <a href="https://www.instagram.com" target="_blank">
-            <img src="instagram.png" alt="Instagram">
-          </a>
-          <a href="https://www.twitter.com" target="_blank">
-            <img src="twitter.png" alt="Twitter">
-          </a>
-          <a href="https://www.youtube.com" target="_blank">
-            <img src="youtube.png" alt="YouTube">
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+  <!-- Gamificación (recompensas) -->
+  <section class="gamification-section">
+    <h2>¡Gana Recompensas!</h2>
+    <p>Participa en desafíos y obtén premios virtuales para disfrutar aún más de AQUAZONE.</p>
+    <button class="btn-recompensa">Reclamar Recompensa</button>
+  </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 AquaZone Water Park. Todos los derechos reservados.</p>
+    <p>© 2025 AQUAZONE. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Modal Área Administrativa -->
-  <div id="adminModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Área Administrativa</h2>
-      <p>Acceso restringido. Introduzca sus credenciales.</p>
-      <form id="adminForm">
-        <label for="adminUser">Usuario:</label>
-        <input type="text" id="adminUser" name="adminUser" required>
-        <label for="adminPass">Contraseña:</label>
-        <input type="password" id="adminPass" name="adminPass" required>
-        <button type="submit">Acceder</button>
-      </form>
-    </div>
-  </div>
+  <!-- Audio: Sonido de agua salpicando -->
+  <audio id="audio" loop>
+    <source src="assets/audio.mp3" type="audio/mp3" />
+    Tu navegador no soporta el elemento de audio.
+  </audio>
 
+  <script src="three.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
