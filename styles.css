@@ -1,243 +1,45 @@
-/* Reset y configuración base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #0077b6; /* tono acuático */
-  color: #fff;
-  overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background: #0099ff;
+    color: white;
+    text-align: center;
 }
 
-/* Canvas para Three.js (fondo animado) */
-canvas#bg-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-}
-
-/* Encabezado y navegación */
 header {
-  text-align: center;
-  padding: 20px;
-}
-.header-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-}
-.logo {
-  width: 150px;
-}
-.nav-main ul {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-}
-.nav-main ul li a {
-  color: #ffea00;
-  text-decoration: none;
-  font-weight: bold;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
 }
 
-/* Hero */
-.hero {
-  margin-top: 40px;
-}
-.neon-title {
-  font-size: 3rem;
-  text-shadow: 0 0 8px #ffea00, 0 0 16px #ffea00;
-  margin-bottom: 10px;
-}
-.subtitle {
-  font-size: 1.2rem;
-  color: #d1e8ff;
-  margin-bottom: 20px;
-}
-.btn-neon {
-  background: transparent;
-  border: 2px solid #ffea00;
-  padding: 10px 20px;
-  font-size: 1.1rem;
-  color: #ffea00;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.3s, transform 0.3s;
-}
-.btn-neon:hover {
-  background: #ffea00;
-  color: #0077b6;
-  transform: scale(1.05);
+#logo {
+    width: 200px;
 }
 
-/* Secciones de atracciones */
-.main-attractions {
-  text-align: center;
-  margin: 30px 0;
-}
-.attraction-btns {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-.sub-sections {
-  text-align: center;
-  margin: 20px 0;
-}
-.sub-btn {
-  background: #00b4d8;
-  border: none;
-  padding: 8px 16px;
-  font-size: 1rem;
-  color: #fff;
-  margin: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-.sub-btn:hover {
-  background: #0096c7;
-}
-.content-display {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 8px;
-  text-align: center;
-}
-#content-title {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-#content-description {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-}
-#content-media img,
-#content-media video {
-  max-width: 100%;
-  border-radius: 8px;
-  margin-top: 10px;
+#background {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
 }
 
-/* Chat widget flotante */
-#chat-widget {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  width: 300px;
-  background: rgba(0,0,0,0.7);
-  border-radius: 8px;
-  overflow: hidden;
-  font-size: 0.9rem;
-  z-index: 100;
-}
-#chat-header {
-  background: #ffea00;
-  color: #0077b6;
-  padding: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-#chat-body {
-  display: none;
-  padding: 10px;
-}
-#chat-widget.active #chat-body {
-  display: block;
-}
-#chat-widget .messages {
-  height: 150px;
-  overflow-y: auto;
-  background: rgba(255,255,255,0.1);
-  margin-bottom: 8px;
-  padding: 5px;
-  border-radius: 5px;
-}
-#userInput {
-  width: 70%;
-  padding: 5px;
-  border: none;
-  border-radius: 5px;
-  margin-right: 5px;
-}
-#sendBtn {
-  background: #ffea00;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-#open-chat {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  background: #ffea00;
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 101;
+.categoria {
+    background: yellow;
+    border: none;
+    padding: 15px;
+    margin: 10px;
+    cursor: pointer;
 }
 
-/* Panel de redes sociales */
-#social-panel {
-  position: fixed;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.8);
-  padding: 10px;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  z-index: 100;
-}
-#social-panel ul {
-  list-style: none;
-}
-#social-panel ul li {
-  margin: 10px 0;
-}
-#social-panel ul li img {
-  width: 30px;
-  height: 30px;
-}
-#social-panel button {
-  background: #ffea00;
-  border: none;
-  padding: 5px;
-  border-radius: 5px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-.hidden {
-  display: none;
+.subcategoria {
+    display: none;
 }
 
-/* Efecto de salpicadura de agua */
-.splash {
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,255,255,0.7), rgba(0,123,182,0.3));
-  animation: splash-animation 0.5s ease-out forwards;
-}
-@keyframes splash-animation {
-  0% { transform: scale(0); opacity: 1; }
-  100% { transform: scale(1.5); opacity: 0; }
+.subcategoria button {
+    background: lightblue;
+    border: none;
+    padding: 10px;
+    margin: 5px;
 }
 
-/* Footer */
 footer {
-  text-align: center;
-  margin: 40px 0;
-  font-size: 0.9rem;
-  color: #ccc;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
 }
