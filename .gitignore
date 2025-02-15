@@ -1,0 +1,5 @@
+# Ignora archivos y carpetas innecesarios
+node_modules/
+dist/
+.env
+.DS_Store
