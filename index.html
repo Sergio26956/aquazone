@@ -10,64 +10,81 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Canvas para animación 3D (Three.js) -->
+  <!-- Canvas para animación 3D de fondo -->
   <canvas id="bg-canvas"></canvas>
 
-  <!-- Encabezado: Logo y título -->
+  <!-- Encabezado: Logo y Menú -->
   <header>
-    <img src="assets/logo.png" alt="Logo AQUAZONE" class="logo" />
-    <h1 class="neon-title">AQUAZONE</h1>
-    <p class="subtitle">¡Diversión acuática y castillos hinchables para toda la familia!</p>
-    <button id="start-btn" class="btn-neon">Descubre Más</button>
+    <div class="header-top">
+      <img src="assets/logo.png" alt="Logo AQUAZONE" class="logo" />
+      <nav class="nav-main">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="about.html">Quiénes somos</a></li>
+          <li><a href="admin.html">Administrador</a></li>
+          <li><a href="#" id="socialToggle">Social</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="hero">
+      <h1 class="neon-title">AQUAZONE</h1>
+      <p class="subtitle">¡Diversión acuática y castillos hinchables para toda la familia!</p>
+      <button id="start-btn" class="btn-neon">Descubre Más</button>
+    </div>
   </header>
 
-  <!-- Sección principal de Atracciones -->
-  <section class="main-attractions">
-    <div class="attraction-btns">
-      <button id="flotantesBtn" class="btn-neon">Parques Acuáticos Flotantes</button>
-      <button id="terrestresBtn" class="btn-neon">Parques Acuáticos Terrestres</button>
+  <!-- Sección principal de atracciones -->
+  <main>
+    <section class="main-attractions">
+      <div class="attraction-btns">
+        <button id="flotantesBtn" class="btn-neon">Parques Acuáticos Flotantes</button>
+        <button id="terrestresBtn" class="btn-neon">Parques Acuáticos Terrestres</button>
+      </div>
+    </section>
+
+    <!-- Secciones desplegables de subcategorías -->
+    <section id="flotantes-sections" class="sub-sections hidden">
+      <button id="piscinasBtn" class="sub-btn">Piscinas</button>
+      <button id="playasBtn" class="sub-btn">Playas</button>
+    </section>
+
+    <section id="terrestres-sections" class="sub-sections hidden">
+      <button id="kamikazeBtn" class="sub-btn">Kamikaze Jump Gigante</button>
+      <button id="urbanoBtn" class="sub-btn">Parque Acuático Urbano Móvil</button>
+    </section>
+
+    <!-- Contenedor para mostrar contenido dinámico de subcategorías -->
+    <section id="content-display" class="content-display hidden">
+      <div id="content-title"></div>
+      <div id="content-description"></div>
+      <div id="content-media"></div>
+      <button id="closeContent" class="btn-neon">Cerrar</button>
+    </section>
+  </main>
+
+  <!-- Widget de chat en vivo (pequeño y flotante) -->
+  <div id="chat-widget">
+    <div id="chat-header">
+      <span>Chat</span>
+      <button id="close-chat">X</button>
     </div>
-  </section>
-
-  <!-- Secciones desplegables para subsecciones -->
-  <section id="flotantes-sections" class="sub-sections hidden">
-    <button id="piscinasBtn" class="sub-btn">Piscinas</button>
-    <button id="playasBtn" class="sub-btn">Playas</button>
-  </section>
-
-  <section id="terrestres-sections" class="sub-sections hidden">
-    <button id="kamikazeBtn" class="sub-btn">Kamikaze Jump Gigante</button>
-    <button id="urbanoBtn" class="sub-btn">Parque Acuático Urbano Móvil</button>
-  </section>
-
-  <!-- Contenedor para mostrar contenido dinámico de cada subsección -->
-  <section id="content-display" class="content-display hidden">
-    <div id="content-title"></div>
-    <div id="content-description"></div>
-    <div id="content-media"></div>
-  </section>
-
-  <!-- Chat en tiempo real -->
-  <section class="chat-section">
-    <h2>Chat en Tiempo Real</h2>
-    <div class="chat-container">
+    <div id="chat-body">
       <div class="messages" id="messages"></div>
       <input type="text" id="userInput" placeholder="Escribe un mensaje..." />
       <button id="sendBtn">Enviar</button>
     </div>
-  </section>
+    <button id="open-chat" class="hidden">Chat</button>
+  </div>
 
-  <!-- Gamificación (recompensas) -->
-  <section class="gamification-section">
-    <h2>¡Gana Recompensas!</h2>
-    <p>Participa en desafíos y obtén premios virtuales para disfrutar aún más de AQUAZONE.</p>
-    <button class="btn-recompensa">Reclamar Recompensa</button>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 AQUAZONE. Todos los derechos reservados.</p>
-  </footer>
+  <!-- Ventana lateral de redes sociales -->
+  <div id="social-panel" class="hidden">
+    <ul>
+      <li><a href="https://facebook.com" target="_blank"><img src="assets/facebook.png" alt="Facebook" /></a></li>
+      <li><a href="https://instagram.com" target="_blank"><img src="assets/instagram.png" alt="Instagram" /></a></li>
+      <li><a href="https://twitter.com" target="_blank"><img src="assets/twitter.png" alt="Twitter" /></a></li>
+    </ul>
+    <button id="close-social">Cerrar</button>
+  </div>
 
   <!-- Audio: Sonido de agua salpicando -->
   <audio id="audio" loop>
