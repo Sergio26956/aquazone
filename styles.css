@@ -11,7 +11,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Canvas para animación 3D */
+/* Canvas para Three.js (fondo animado) */
 canvas#bg-canvas {
   position: fixed;
   top: 0;
@@ -21,18 +21,39 @@ canvas#bg-canvas {
   z-index: -1;
 }
 
-/* Encabezado */
+/* Encabezado y navegación */
 header {
   text-align: center;
-  padding: 40px 20px;
+  padding: 20px;
+}
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
 .logo {
-  width: 180px;
-  margin-bottom: 10px;
+  width: 150px;
+}
+.nav-main ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+.nav-main ul li a {
+  color: #ffea00;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Hero */
+.hero {
+  margin-top: 40px;
 }
 .neon-title {
   font-size: 3rem;
   text-shadow: 0 0 8px #ffea00, 0 0 16px #ffea00;
+  margin-bottom: 10px;
 }
 .subtitle {
   font-size: 1.2rem;
@@ -55,7 +76,7 @@ header {
   transform: scale(1.05);
 }
 
-/* Sección de atracciones principales */
+/* Secciones de atracciones */
 .main-attractions {
   text-align: center;
   margin: 30px 0;
@@ -65,8 +86,6 @@ header {
   justify-content: center;
   gap: 20px;
 }
-
-/* Botones para subsecciones */
 .sub-sections {
   text-align: center;
   margin: 20px 0;
@@ -85,8 +104,6 @@ header {
 .sub-btn:hover {
   background: #0096c7;
 }
-
-/* Contenedor para mostrar contenido de cada subsección */
 .content-display {
   max-width: 800px;
   margin: 20px auto;
@@ -110,65 +127,111 @@ header {
   margin-top: 10px;
 }
 
-/* Chat en tiempo real */
-.chat-section {
-  max-width: 800px;
-  margin: 40px auto;
-  text-align: center;
-  padding: 0 20px;
+/* Chat widget flotante */
+#chat-widget {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 300px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.9rem;
+  z-index: 100;
 }
-.chat-container {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 15px;
-  border-radius: 5px;
-  margin-top: 15px;
+#chat-header {
+  background: #ffea00;
+  color: #0077b6;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.messages {
-  height: 250px;
-  overflow-y: auto;
-  background: rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px;
+#chat-body {
+  display: none;
   padding: 10px;
+}
+#chat-widget.active #chat-body {
+  display: block;
+}
+#chat-widget .messages {
+  height: 150px;
+  overflow-y: auto;
+  background: rgba(255,255,255,0.1);
+  margin-bottom: 8px;
+  padding: 5px;
   border-radius: 5px;
-  text-align: left;
 }
 #userInput {
   width: 70%;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 5px;
   border: none;
-  margin-right: 10px;
+  border-radius: 5px;
+  margin-right: 5px;
 }
 #sendBtn {
   background: #ffea00;
   border: none;
-  padding: 10px 20px;
+  padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s;
 }
-#sendBtn:hover {
-  background: #ffd300;
+#open-chat {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: #ffea00;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 101;
 }
 
-/* Gamificación */
-.gamification-section {
-  max-width: 800px;
-  margin: 40px auto;
-  text-align: center;
-  padding: 0 20px;
+/* Panel de redes sociales */
+#social-panel {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.8);
+  padding: 10px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  z-index: 100;
 }
-.btn-recompensa {
-  background: #ff9800;
-  color: #fff;
+#social-panel ul {
+  list-style: none;
+}
+#social-panel ul li {
+  margin: 10px 0;
+}
+#social-panel ul li img {
+  width: 30px;
+  height: 30px;
+}
+#social-panel button {
+  background: #ffea00;
   border: none;
-  padding: 12px 20px;
+  padding: 5px;
   border-radius: 5px;
+  margin-top: 10px;
   cursor: pointer;
-  transition: background 0.3s;
 }
-.btn-recompensa:hover {
-  background: #fb8c00;
+.hidden {
+  display: none;
+}
+
+/* Efecto de salpicadura de agua */
+.splash {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,255,255,0.7), rgba(0,123,182,0.3));
+  animation: splash-animation 0.5s ease-out forwards;
+}
+@keyframes splash-animation {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
 }
 
 /* Footer */
@@ -177,22 +240,4 @@ footer {
   margin: 40px 0;
   font-size: 0.9rem;
   color: #ccc;
-}
-
-/* Clase auxiliar para ocultar elementos */
-.hidden {
-  display: none;
-}
-
-/* Efecto de salpicadura (para usar en JS) */
-.splash {
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.7), rgba(0, 123, 182, 0.3));
-  animation: splash-animation 0.5s ease-out forwards;
-}
-
-@keyframes splash-animation {
-  0% { transform: scale(0); opacity: 1; }
-  100% { transform: scale(1.5); opacity: 0; }
 }
