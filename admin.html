@@ -1,49 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Área Administrativa - AquaZone Water Park</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Área Administrativa - AQUAZONE</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Encabezado -->
   <header>
-    <div class="header-container">
-      <img src="logo.png" alt="AquaZone Logo" class="logo">
-      <nav>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-          <li><a href="media.html">Media</a></li>
-          <li><a href="redes.html">Redes Sociales</a></li>
-        </ul>
-      </nav>
-    </div>
+    <img src="assets/logo.png" alt="Logo AQUAZONE" class="logo" />
+    <h1 class="neon-title">Área Administrativa</h1>
   </header>
-
-  <!-- Contenido Principal -->
   <main>
-    <section id="admin" class="section">
-      <div class="content-container">
-        <h2>Área Administrativa</h2>
-        <p>Acceso restringido. Introduce tus credenciales a continuación.</p>
-        <form id="adminForm">
-          <label for="adminUser">Usuario:</label>
-          <input type="text" id="adminUser" name="adminUser" required>
-          <label for="adminPass">Contraseña:</label>
-          <input type="password" id="adminPass" name="adminPass" required>
-          <button type="submit">Acceder</button>
-        </form>
-      </div>
+    <section class="admin-section">
+      <form id="adminForm">
+        <label for="adminUser">Usuario:</label>
+        <input type="text" id="adminUser" name="adminUser" required />
+        <label for="adminPass">Contraseña:</label>
+        <input type="password" id="adminPass" name="adminPass" required />
+        <button type="submit" class="btn-neon">Acceder</button>
+      </form>
     </section>
   </main>
-
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 AquaZone Water Park. Todos los derechos reservados.</p>
+    <p>© 2025 AQUAZONE. Todos los derechos reservados.</p>
   </footer>
-
-  <script src="script.js"></script>
+  <script>
+    document.getElementById("adminForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Acceso administrativo (función demo).");
+      this.reset();
+    });
+  </script>
 </body>
 </html>
